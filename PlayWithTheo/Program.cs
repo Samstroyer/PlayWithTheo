@@ -12,7 +12,7 @@ while (true)
     var OUT = new Thread(Outgoer);
 
     IN.Start();
-    OUT.Start();
+    //OUT.Start();
 }
 
 void Incomer()
@@ -45,7 +45,7 @@ void Outgoer()
     while (true)
     {
         string message = Console.ReadLine();
-        TcpClient client = new TcpClient("10.151.168.166", 1302);
+        TcpClient client = new TcpClient("10.151.168.166", 585);
         StreamReader sr = new StreamReader(client.GetStream());
         StreamWriter sw = new StreamWriter(client.GetStream());
         sw.WriteLine(message);
