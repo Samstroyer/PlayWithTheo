@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u/5/UKYGcPvFjrRwEaqMUnEcwdpcBzmISC5rdjhFkkZafLzLFjHfXAK0y2e+4zDU4HI8afG+k+wCb5IZigniZw==",
+  "dgSpecHash": "aMZlCWI8wPh2zR9C+A8w0DywXUlB9srAZRI9XUfU3Cgn+g7CZ3IyulaBZx9qeSjOBVwL4o4uj6AQYi6gZHiglw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\palmer.samuel\\Documents\\NTI-Programmering\\PRRPRR\\PlayWithTheo\\PlayWithTheo\\PlayWithTheo.csproj",
+  "projectFilePath": "C:\\Users\\palmer.samuel\\Documents\\NTI-Programmering\\PRRPRR\\PlayWithTheo\\PlayWithTheo\\PlayWithTheo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\palmer.samuel\\.nuget\\packages\\raylib-cs\\4.0.0.1\\raylib-cs.4.0.0.1.nupkg.sha512",
     "C:\\Users\\palmer.samuel\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"

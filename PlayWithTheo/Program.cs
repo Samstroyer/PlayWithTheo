@@ -2,13 +2,64 @@
 using System.IO;
 using System.Net;
 using System.Numerics;
+using System.Threading;
 using System.Net.Sockets;
 using Raylib_cs;
 
-Raylib.InitWindow(800, 800, "Game");
-GameLoop();
+while (true)
+{
+    var IN = new Thread(Incomer);
+    var OUT = new Thread(Outgoer);
 
-async void GameLoop()
+    IN.Start();
+    OUT.Start();
+}
+
+void Incomer()
+{
+    while (true)
+    {
+        IPAddress addr = new IPAddress(new byte[] { 10, 151, 172, 161 });
+        TcpListener listener = new TcpListener(addr, 1302);
+        listener.Start();
+
+        TcpClient client = listener.AcceptTcpClient();
+        StreamReader sr = new StreamReader(client.GetStream());
+
+        try
+        {
+            string message = sr.ReadLine();
+            Console.WriteLine(message);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("failed");
+        }
+
+        client.Close();
+    }
+}
+
+void Outgoer()
+{
+    while (true)
+    {
+        string message = Console.ReadLine();
+        TcpClient client = new TcpClient("10.151.168.166", 1302);
+        StreamReader sr = new StreamReader(client.GetStream());
+        StreamWriter sw = new StreamWriter(client.GetStream());
+        sw.WriteLine(message);
+        sw.Flush();
+
+    }
+}
+
+
+
+//Raylib.InitWindow(800, 800, "Game");
+//GameLoop();
+
+void GameLoop()
 {
     Game game = new Game("Samme");
     NetworkingDeluxe network = new NetworkingDeluxe();
@@ -59,6 +110,7 @@ class NetworkingDeluxe
     async public void Outgoing(Vector2 cords)
     {
         sw.WriteLine($"{cords.X} {cords.Y}");
+        sw.Flush();
     }
 }
 
